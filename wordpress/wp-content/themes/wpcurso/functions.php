@@ -20,3 +20,7 @@ register_nav_menus(
 		'menu_rodape' => 'Menu Rodapé'
 	)
 );
+
+add_theme_support('custom-background');
+add_theme_support('custom-header');
+add_theme_support('custom-footer');
