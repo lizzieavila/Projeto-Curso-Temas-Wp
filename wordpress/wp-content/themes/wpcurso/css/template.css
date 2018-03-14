@@ -1,3 +1,15 @@
 .menu-principal ul li,.menu-rodape ul li{
 	display: inline-block;
 }
+.wp-post-image{
+	float: left;
+	margin: 0px 15px 10px 0px;
+}
+.redes-sociais{
+	background: #F3E2A9;
+	height: 30px;
+}
+.pesquisa{
+	background: #F3E2A9;
+	height: 30px;
+}

@@ -16,12 +16,16 @@
 								while(have_posts()) : the_post();
 						?>
 
+
+					<article>
 						<h1><?php the_title(); ?></h1>
+						<?php the_post_thumbnail('thumbnail'); ?>
 						<p>Publicado em <?php echo get_the_date(); ?> Por <?php the_author(); ?></p>
 						<p>Categorias: <?php the_category(''); ?></p>
 						<p>Tags: <?php the_tags(''); ?></p>
 						<p><?php the_content(); ?></p>
-
+					</article>
+					
 					<?php endwhile;
 					else:
 					   ?>
