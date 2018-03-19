@@ -1,43 +1,40 @@
 <?php get_header(); ?>
-<img class="img-fluid"  src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt=""/>
+
+<img class="img-responsive" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
 
 <div class="conteudo">
-	<main>		
-			<div class="slide container">Slider</div>
-			<div class="servicos container">Serviços</div>
-
-			<section class="meio container">
+	<main>
+		<section class="meio">
+			<div class="container">
 				<div class="row">
-				    <aside class="barra-lateral col-md-3">Barra lateral</aside>
+
 					<div class="noticias col-md-9">
 						<?php 
-
+							// Se houver algum post
 							if(have_posts()) :
-								while(have_posts()) : the_post();
+								// Enquanto houver algum post, chame o post de determinada maneira
+								while (have_posts()) : the_post(); 
 						?>
 
+						<?php get_template_part('content', get_post_format()); ?>
 
-					<article>
-						<h1><?php the_title(); ?></h1>
-						<?php the_post_thumbnail('thumbnail'); ?>
-						<p>Publicado em <?php echo get_the_date(); ?> Por <?php the_author(); ?></p>
-						<p>Categorias: <?php the_category(''); ?></p>
-						<p>Tags: <?php the_tags(''); ?></p>
-						<p><?php the_content(); ?></p>
-					</article>
-					
-					<?php endwhile;
-					else:
-					   ?>
+						<?php 
+						endwhile;
+						else:
+						 ?>
+							<p>Nao tem nada ainda pra mostrar</p>
+						<?php 
+						endif;
+						?>
 
-					   <p>Não há nada publicado</p>
-					<?php endif; ?>
 					</div>
-                </div>
-			</section>
+					<aside class="barra-lateral col-md-3">
+						<?php get_sidebar('blog'); ?>
+					</aside>
+				</div>
+			</div>
+		</section>
 
-			<section class="mapa container">Mapa				
-			</section>
-	</main>
+	</main>	
 </div>
 <?php get_footer(); ?>
